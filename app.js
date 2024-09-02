@@ -13,6 +13,8 @@ const db = new sqlite3.Database('./users.db', (err) => {
     }
 });
 
+
+
 // GET /api/users
 app.get('/api/users', (req, res) => {
     db.all('SELECT * FROM users', [], (err, rows) => {
@@ -76,3 +78,7 @@ app.delete('/api/users/:id', (req, res) => {
     res.status(204).send();
     });
 });
+
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+  });
